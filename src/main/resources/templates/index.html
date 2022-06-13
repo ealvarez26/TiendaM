@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>MCV</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <h1>MVC----Tabla de usuarios conecteda a base de datos MySQL</h1>
+
+<!--
+        <p th:text="${texto}"></p>
+
+        <p>Nombre: <span th:text="${cliente.nombre}"></span></p>
+        <p>Apellido: <span th:text="${cliente.apellidos}"></span></p>
+        <p>Correo: <span th:text="${cliente.correo}"></span></p>
+        <p>Telefono: <span th:text="${cliente.telefono}"></span></p>-->
+
+
+        <div th:if="${clientes !=null and !clientes.empty}">
+           
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="items: ${clientes}">
+                        <td th:text="${items.nombre}"></td>
+                        <td th:text="${items.apellidos}"></td>
+                        <td th:text="${items.correo}"></td>
+                        <td th:text="${items.telefono}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${clientes==null or clientes.empty}">La lista esta vacia</div>
+
+
+
+
+
+    </body>
+</html>
